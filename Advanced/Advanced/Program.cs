@@ -129,7 +129,49 @@ namespace Advanced
                 Console.Write(c + " ");
             }
             #endregion
-            
+
+            #region Day18: Queues and Stacks
+            //Description: Tests if a string is a palindrome or not
+            Console.WriteLine("\n\nDEMONSTRATION ON STACKS AND QUEUES\nInput String: ");
+            // read the string strPal
+            string strPal = Console.ReadLine();
+
+            // create the Solution class object p.
+            StacksQueues obj = new StacksQueues();
+
+            // push/enqueue all the characters of string s to stack.
+            foreach (char c in strPal)
+            {
+                obj.pushCharacter(c);
+                obj.enqueueCharacter(c);
+            }
+
+            bool isPalindrome = true;
+
+            // pop the top character from stack.
+            // dequeue the first character from queue.
+            // compare both the characters.
+            for (int i = 0; i < strPal.Length / 2; i++)
+            {
+                if (obj.popCharacter() != obj.dequeueCharacter())
+                {
+                    isPalindrome = false;
+
+                    break;
+                }
+            }
+
+            // finally print whether string s is palindrome or not.
+            if (isPalindrome)
+            {
+                Console.Write("The word, {0}, is a PALINDROME.", strPal);
+            }
+            else
+            {
+                Console.Write("The word, {0}, is NOT a palindrome.", strPal);
+            }
+            #endregion
+
             Console.ReadKey();
         }
     }
